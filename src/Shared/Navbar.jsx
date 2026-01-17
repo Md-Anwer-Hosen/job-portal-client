@@ -42,6 +42,9 @@ const Navbar = () => {
                 <NavLink>Find a job</NavLink>
               </li>
               <li>
+                <NavLink to={"myApplications"}>My applications</NavLink>
+              </li>
+              <li>
                 <NavLink>Blog</NavLink>
               </li>
               <li>
@@ -58,6 +61,9 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink>Find a job</NavLink>
+            </li>
+            <li>
+              <NavLink to={"myApplications"}>My applications</NavLink>
             </li>
             <li>
               <NavLink>Blog</NavLink>

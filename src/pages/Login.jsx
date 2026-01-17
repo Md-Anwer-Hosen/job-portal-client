@@ -2,13 +2,17 @@ import { useContext } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../assets/login.json.json";
 import { AuthContexts } from "../contexts/AuthContexts";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContexts);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then((result) => console.log(result))
+      .then(() => navigate(from, { relative: true }))
       .catch((err) => console.log(err));
   };
 
@@ -19,7 +23,7 @@ const Login = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then((result) => console.log(result))
+      .then(() => navigate(from, { replace: true }))
       .catch((err) => console.log(err));
   };
 
