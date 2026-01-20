@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-transparent shadow-sm text-black">
+      <div className="navbar bg-transparent shadow shadow-blue-300  text-black">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold  space-x-2"
+              className="menu dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold  space-x-2 "
             >
               <li>
                 <NavLink to={"/"}>Home</NavLink>
@@ -42,7 +42,14 @@ const Navbar = () => {
                 <NavLink>Find a job</NavLink>
               </li>
               <li>
-                <NavLink to={"myApplications"}>My applications</NavLink>
+                <NavLink to={"/myApplications"}>My applications</NavLink>
+              </li>
+
+              <li>
+                <NavLink to={"/createJob"}>Post a Job</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/myPostJobs"}>My Post jobs</NavLink>
               </li>
               <li>
                 <NavLink>Blog</NavLink>
@@ -52,10 +59,10 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl border border-blue-700">JobBox</a>
         </div>
-        <div className="navbar-center hidden lg:flex font-semibold   ">
-          <ul className="menu menu-horizontal px-1 text-lg space-x-5">
+        <div className="navbar-center hidden lg:flex font-semibold    ">
+          <ul className="menu menu-horizontal px-1 text-lg space-x- ">
             <li className="">
               <NavLink to={"/"}>Home</NavLink>
             </li>
@@ -63,7 +70,13 @@ const Navbar = () => {
               <NavLink>Find a job</NavLink>
             </li>
             <li>
-              <NavLink to={"myApplications"}>My applications</NavLink>
+              <NavLink to={"/myApplications"}>My applications</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/createJob"}>Post a Job</NavLink>
+            </li>
+            <li>
+              <NavLink to={"/myPostJobs"}>My Post jobs</NavLink>
             </li>
             <li>
               <NavLink>Blog</NavLink>

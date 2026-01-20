@@ -3,7 +3,6 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const JobDetails = () => {
   const job = useLoaderData();
-  console.log(job);
 
   return (
     <div className="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-md my-10">
