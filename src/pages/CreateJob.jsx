@@ -3,7 +3,6 @@ import UseAuth from "../hooks/UseAuth";
 
 const JobCreateForm = () => {
   const { user } = UseAuth();
-  console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

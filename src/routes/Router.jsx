@@ -11,6 +11,8 @@ import MyApplications from "../pages/MyApplications";
 import CreateJob from "../pages/CreateJob";
 import MyPostJobs from "../pages/MyPostJobs";
 import MyCandidates from "../pages/MyCandidates";
+import Blog from "../pages/Blog";
+import Contact from "../pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +76,14 @@ export const router = createBrowserRouter([
             <MyCandidates />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
       },
     ],
   },

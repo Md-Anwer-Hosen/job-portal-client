@@ -5,12 +5,12 @@ import hero2 from "../assets/images/hero2.jpg";
 
 const Hero = () => {
   return (
-    <div className="text-black max-w-11/12 mx-auto px-4">
-      <div className="min-h-screen flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="text-black max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-10 md:py-14 lg:py-16 min-h-[80vh] flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center w-full">
           {/* LEFT CONTENT */}
-          <div className="-mt-50">
-            <h1 className="text-6xl font-bold leading-tight text-slate-900">
+          <div className="order-2 lg:order-1">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-slate-900">
               The{" "}
               <motion.span
                 className="inline-block text-blue-600"
@@ -37,14 +37,14 @@ const Hero = () => {
               </motion.span>
             </h1>
 
-            <p className="py-8 text-slate-600 max-w-lg">
+            <p className="mt-5 sm:mt-6 text-sm sm:text-base text-slate-600 max-w-xl">
               Each month, more than 3 million job seekers turn to website in
               their search for work, making over 140,000 applications every
               single day
             </p>
 
             {/* SEARCH SECTION */}
-            <div className="bg-white shadow-2xl rounded-xl p-4 flex flex-col md:flex-row gap-3 items-center max-w-2xl mt-15 text-black">
+            <div className="mt-6 sm:mt-8 bg-white shadow-2xl rounded-xl p-4 sm:p-5 flex flex-col lg:flex-row gap-3 items-stretch lg:items-center max-w-2xl">
               <input
                 type="text"
                 placeholder="Industry"
@@ -60,35 +60,66 @@ const Hero = () => {
                 placeholder="Your keyword..."
                 className="input input-bordered w-full bg-white border-blue-400"
               />
-              <button className="btn btn-primary px-8">Search</button>
+              <button className="btn btn-primary w-full lg:w-auto px-8">
+                Search
+              </button>
             </div>
           </div>
 
           {/* RIGHT IMAGES */}
-          <div className="relative h-[420px]">
-            {/* IMAGE 1 – UP & DOWN */}
-            <motion.img
-              src={hero1}
-              className="absolute -top-30 left-0 w-md rounded-lg shadow-2xl "
-              animate={{ y: [0, -30, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+          <div className="order-1 lg:order-2">
+            {/* Mobile/Tablet: normal flow */}
+            <div className="lg:hidden grid grid-cols-2 gap-4">
+              <motion.img
+                src={hero1}
+                alt="Hero 1"
+                className="w-full h-44 sm:h-56 object-cover rounded-xl shadow-2xl"
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.img
+                src={hero2}
+                alt="Hero 2"
+                className="w-full h-44 sm:h-56 object-cover rounded-xl shadow-2xl"
+                animate={{ y: [0, 10, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </div>
 
-            {/* IMAGE 2 – LEFT & RIGHT */}
-            <motion.img
-              src={hero2}
-              className="absolute bottom-0 right-0 w-md rounded-2xl shadow-2xl z-50"
-              animate={{ x: [0, 30, 0] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+            {/* Desktop: absolute layered */}
+            <div className="hidden lg:block relative h-[420px]">
+              <motion.img
+                src={hero1}
+                alt="Hero 1"
+                className="absolute top-0 left-0 w-[360px] rounded-xl shadow-2xl"
+                animate={{ y: [0, -30, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              <motion.img
+                src={hero2}
+                alt="Hero 2"
+                className="absolute bottom-0 right-0 w-[360px] rounded-2xl shadow-2xl z-50"
+                animate={{ x: [0, 30, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
