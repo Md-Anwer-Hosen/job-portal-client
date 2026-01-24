@@ -71,7 +71,7 @@ const JobCart = ({ data }) => {
         </p>
         <Link to={`jobs/${_id}`}>
           {" "}
-          <button className="bg-blue-500 text-white text-xs sm:text-sm px-3 py-2 rounded-lg hover:bg-blue-600 mt-2 sm:mt-0">
+          <button className="bg-blue-500 text-white text-xs sm:text-sm px-3 py-2 rounded-lg hover:bg-blue-600 mt-3 sm:mt-0">
             See Details
           </button>
         </Link>
