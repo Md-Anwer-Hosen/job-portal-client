@@ -1,6 +1,5 @@
 import { FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import MyCandidates from "../pages/MyCandidates";
 
 const JobCartForAdmin = ({ data }) => {
   const {
