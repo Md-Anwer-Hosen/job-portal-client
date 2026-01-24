@@ -1,7 +1,7 @@
 import { FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const JobCartForAdmin = ({ data }) => {
+const JobCartAdmin = ({ data }) => {
   const {
     _id,
     title,
@@ -80,4 +80,4 @@ const JobCartForAdmin = ({ data }) => {
   );
 };
 
-export default JobCartForAdmin;
+export default JobCartAdmin;

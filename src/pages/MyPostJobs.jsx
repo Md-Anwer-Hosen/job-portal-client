@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import UseAuth from "../hooks/UseAuth";
-import JobCartForAdmin from "../Shared/JobCartForAdmin";
+import JobCartAdmin from "../Shared/JobCartAdmin";
 
 const MyPostJobs = () => {
   const { user } = UseAuth();
@@ -46,7 +46,7 @@ const MyPostJobs = () => {
 
           <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  mt-10 md:mt-16 gap-5">
             {data.map((job) => (
-              <JobCartForAdmin key={job.id || job._id} data={job} />
+              <JobCartAdmin key={job.id || job._id} data={job} />
             ))}
           </div>
         </div>
