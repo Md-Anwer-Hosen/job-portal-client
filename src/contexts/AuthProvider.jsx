@@ -44,12 +44,15 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser?.email) {
         const userData = { email: currentUser.email };
-        axios
-          .post("http://localhost:3000/jwt", userData, {
+        axios.post(
+          "https://job-portal-server-bau7.onrender.com/jwt",
+          userData,
+          {
             withCredentials: true,
-          })
-          .then((res) => console.log(res.data))
-          .catch((err) => console.log(err));
+          },
+        );
+        // .then((res) => console.log(res.data))
+        // .catch((err) => console.log(err));
       }
     });
     return unsubscribe;

@@ -2,7 +2,8 @@ import { useContext } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../assets/login.json.json";
 import { AuthContexts } from "../contexts/AuthContexts";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContexts);
@@ -12,8 +13,25 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then(() => navigate(from, { relative: true }))
-      .catch((err) => console.log(err));
+      .then(() => {
+        navigate(from, { replace: true });
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        Swal.fire({
+          icon: "error",
+          title: "Login failed",
+          text: err.message,
+        });
+      });
   };
 
   const handleSubmit = (e) => {
@@ -118,9 +136,11 @@ const Login = () => {
 
           <p className="text-sm text-center text-gray-600 mt-6">
             Don’t have an account?{" "}
-            <span className="text-blue-600 cursor-pointer hover:underline">
-              Register
-            </span>
+            <Link to={"/register"} state={{ from: location }} replace>
+              <span className="text-blue-600 cursor-pointer hover:underline">
+                Register
+              </span>
+            </Link>
           </p>
         </div>
       </div>

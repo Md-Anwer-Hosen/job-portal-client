@@ -13,6 +13,7 @@ import MyPostJobs from "../pages/MyPostJobs";
 import MyCandidates from "../pages/MyCandidates";
 import Blog from "../pages/Blog";
 import Contact from "../pages/Contact";
+import NotFound404 from "../Shared/NotFound404";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,9 @@ export const router = createBrowserRouter([
         path: "jobs/:id",
         element: <JobDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/jobs/${params.id}`),
+          fetch(
+            `https://job-portal-server-bau7.onrender.com/jobs/${params.id}`,
+          ),
       },
       {
         path: "apply/:id",
@@ -84,6 +87,10 @@ export const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "*",
+        element: <NotFound404 />,
       },
     ],
   },

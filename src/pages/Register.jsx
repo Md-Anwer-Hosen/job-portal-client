@@ -1,11 +1,15 @@
 import Lottie from "lottie-react";
 import registerAnimation from "../assets/registration.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContexts } from "../contexts/AuthContexts";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContexts);
+
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,14 +18,30 @@ const Register = () => {
     const confirmPassword = form.confirmPassword.value;
 
     if (password !== confirmPassword) {
-      console.log("password is wrong");
+      // console.log("password is wrong");
       alert("Password Do not Match");
       return;
     }
 
     createUser(email, password)
-      .then((r) => console.log(r))
-      .catch((err) => console.log(err));
+      .then(() => {
+        navigate("/");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Create Account  successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        Swal.fire({
+          icon: "error",
+          title: "failed",
+          text: err.message,
+        });
+      });
   };
 
   return (

@@ -8,6 +8,7 @@ import {
   FiArrowUpRight,
 } from "react-icons/fi";
 import { FaFacebookF, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   // optional: demo form state (you can connect it to backend later)
@@ -24,8 +25,14 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO: connect with your API / EmailJS
-    console.log("Contact Form:", formData);
-    alert("Message prepared! (Connect to backend to send)");
+    // console.log("Contact Form:", formData);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Message Sent successful!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   // ====== YOUR INFO (edit these) ======

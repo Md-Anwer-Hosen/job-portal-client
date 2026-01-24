@@ -10,7 +10,9 @@ const Jobs = () => {
   } = useQuery({
     queryKey: ["jobs"],
     queryFn: () =>
-      fetch("http://localhost:3000/jobs").then((res) => res.json()),
+      fetch("https://job-portal-server-bau7.onrender.com/jobs").then((res) =>
+        res.json(),
+      ),
   });
 
   if (isLoading)

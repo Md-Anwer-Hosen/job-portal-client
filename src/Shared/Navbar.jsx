@@ -17,7 +17,8 @@ const Navbar = () => {
       await signOutUser();
       setOpen(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
+      const error = err;
     }
   };
 

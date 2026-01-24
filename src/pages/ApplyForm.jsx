@@ -1,10 +1,12 @@
 import { FaGithub, FaLinkedin, FaFileAlt, FaUser } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UseAuth from "../hooks/UseAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const ApplyForm = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const jobId = id;
 
   const { user } = UseAuth();
@@ -27,9 +29,28 @@ const ApplyForm = () => {
     };
 
     axios
-      .post("http://localhost:3000/applications", application)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .post(
+        "https://job-portal-server-bau7.onrender.com/applications",
+        application,
+      )
+      .then(() => {
+        navigate("/MyApplications");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        Swal.fire({
+          icon: "error",
+          title: "Login failed",
+          text: err.message,
+        });
+      });
   };
 
   return (

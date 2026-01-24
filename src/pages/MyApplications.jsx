@@ -13,7 +13,7 @@ const MyApplications = () => {
     enabled: !loading && !!user?.email,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:3000/applications?email=${user.email}`,
+        `https://job-portal-server-bau7.onrender.com/applications?email=${user.email}`,
         { credentials: "include" },
       );
       return res.json();

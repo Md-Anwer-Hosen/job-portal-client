@@ -1,8 +1,11 @@
 import axios from "axios";
 import UseAuth from "../hooks/UseAuth";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const JobCreateForm = () => {
   const { user } = UseAuth();
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,9 +24,25 @@ const JobCreateForm = () => {
       .map((d) => d.trim());
 
     axios
-      .post("http://localhost:3000/jobs", newData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .post("https://job-portal-server-bau7.onrender.com/jobs", newData)
+      .then(() => {
+        navigate("/MyPostJobs");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Create your Job successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        Swal.fire({
+          icon: "error",
+          title: " failed",
+          text: err.message,
+        });
+      });
   };
 
   return (

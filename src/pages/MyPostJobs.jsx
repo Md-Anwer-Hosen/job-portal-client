@@ -13,9 +13,10 @@ const MyPostJobs = () => {
   } = useQuery({
     queryKey: ["jobs"],
     queryFn: () =>
-      fetch(`http://localhost:3000/jobs?email=${user.email}`)
-        .then((res) => res.json())
-        .catch((err) => console.log(err)),
+      fetch(
+        `https://job-portal-server-bau7.onrender.com/jobs?email=${user.email}`,
+      ).then((res) => res.json()),
+    // .catch((err) => console.log(err)),
   });
 
   if (isLoading)

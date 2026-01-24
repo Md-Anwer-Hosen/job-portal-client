@@ -15,7 +15,9 @@ const MyCandidates = () => {
     queryKey: ["applications", id],
     enabled: !!id,
     queryFn: async () => {
-      const res = await fetch(`http://localhost:3000/applications/jobs/${id}`);
+      const res = await fetch(
+        `https://job-portal-server-bau7.onrender.com/applications/jobs/${id}`,
+      );
 
       if (!res.ok) {
         throw new Error("Failed to fetch");
@@ -27,14 +29,17 @@ const MyCandidates = () => {
 
   const handleStatus = (e, applicationId) => {
     const status = e.target.value;
-    console.log(applicationId);
+    // console.log(applicationId);
 
     axios
-      .patch(`http://localhost:3000/applications/${applicationId}`, { status })
-      .then((res) => {
-        console.log("updated:", res.data);
-      })
-      .catch((err) => console.log(err));
+      .patch(
+        `https://job-portal-server-bau7.onrender.com/applications/${applicationId}`,
+        { status },
+      )
+      .then(() => {
+        // console.log("updated:", res.data);
+      });
+    // .catch((err) => console.log(err));
   };
 
   if (isLoading)
