@@ -1,17 +1,60 @@
-# React + Vite
+# Job Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Job Portal web application where recruiters can post jobs and candidates can browse and apply. Includes authentication, job management, and application tracking.
 
-Currently, two official plugins are available:
+## 🔗 Live Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Client: [Live Site] https://job-portal-client-lac-ten.vercel.app
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User authentication (Email/Password, Google login) using Firebase
+- Job listing with details page
+- Recruiter can create, update, and delete jobs
+- Candidates can apply for jobs
+- Application management (view applied jobs / applicants)
+- Protected routes (only logged-in users can access private pages)
+- Responsive UI (Tailwind CSS)
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# job-portal
+**Client**
+
+- React
+- Tailwind CSS
+- React Router
+- TanStack Query (optional / if used)
+- Firebase Authentication
+- React Icons
+
+**Server**
+
+- Node.js
+- Express.js
+- MongoDB (Atlas)
+- dotenv
+- cors
+
+## 📦 Dependencies
+
+Make sure you have installed:
+
+- Node.js (LTS recommended)
+- MongoDB Atlas (or local MongoDB)
+
+## ⚙️ Environment Variables
+
+### Client (`.env`)
+
+Create a `.env` file in the client root and add:
+
+```env
+VITE_apiKey=your_firebase_apiKey
+VITE_authDomain=your_firebase_authDomain
+VITE_projectId=your_firebase_projectId
+VITE_storageBucket=your_firebase_storageBucket
+VITE_messagingSenderId=your_firebase_messagingSenderId
+VITE_appId=your_firebase_appId
+
+VITE_API_URL=https://your-server-url.com
+```

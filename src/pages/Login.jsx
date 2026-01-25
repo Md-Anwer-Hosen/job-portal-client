@@ -42,7 +42,7 @@ const Login = () => {
 
     signIn(email, password)
       .then(() => navigate(from, { replace: true }))
-      .catch((err) => console.log(err));
+      // .catch((err) => console.log(err));
   };
 
   return (

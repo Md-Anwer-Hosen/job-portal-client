@@ -17,7 +17,7 @@ const JobCreateForm = () => {
     newData.salaryRange = { min, max, currency };
     //process requirements-->
     newData.requirements = newData.requirements.split(",").map((d) => d.trim());
-    console.log(newData);
+    // console.log(newData);
     //process responsibilities-->
     newData.responsibilities = newData.responsibilities
       .split(",")
