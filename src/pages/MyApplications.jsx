@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import UseAuth from "../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 import useApplicationsApi from "../api/useApplicationsApi";
 import useAuth from "../hooks/useAuth";
 

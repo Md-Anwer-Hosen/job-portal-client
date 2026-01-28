@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect } from "react";
-import UseAuth from "./useAuth";
+import useAuth from "./useAuth";
 
 const axiosInstance = axios.create({
   baseURL: "https://job-portal-server-bau7.onrender.com",
 });
 
 const useAxiosSecure = () => {
-  const { user, signOutUser } = UseAuth();
+  const { user, signOutUser } = useAuth();
 
   useEffect(() => {
     const reqInterceptor = axiosInstance.interceptors.request.use(
