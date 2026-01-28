@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import JobCart from "./JobCart";
-import useAuth from "../hooks/useAuth";
+import UseAuth from "../hooks/UseAuth";
 
 const Jobs = () => {
-  const { user } = useAuth();
+  const { user } = UseAuth();
   const {
     data = [],
     isLoading,

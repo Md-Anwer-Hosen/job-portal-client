@@ -1,10 +1,11 @@
 import axios from "axios";
-import useAuth from "../hooks/useAuth";
+
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import UseAuth from "../hooks/UseAuth";
 
 const JobCreateForm = () => {
-  const { user } = useAuth();
+  const { user } = UseAuth();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();

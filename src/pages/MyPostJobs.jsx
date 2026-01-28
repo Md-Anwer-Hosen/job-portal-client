@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import JobCartAdmin from "../Shared/JobCartAdmin";
-import useAuth from "../hooks/useAuth";
+
 import useJobApi from "../api/useJobsApi";
+import UseAuth from "../hooks/UseAuth";
 
 const MyPostJobs = () => {
   const { myJobs } = useJobApi();
-  const { user } = useAuth();
+  const { user } = UseAuth();
   const {
     data = [],
     isLoading,

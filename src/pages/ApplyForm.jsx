@@ -1,15 +1,16 @@
 import { FaGithub, FaLinkedin, FaFileAlt, FaUser } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+
 import axios from "axios";
 import Swal from "sweetalert2";
+import UseAuth from "../hooks/UseAuth";
 
 const ApplyForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const jobId = id;
 
-  const { user } = useAuth();
+  const { user } = UseAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();

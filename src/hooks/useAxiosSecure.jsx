@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect } from "react";
-import useAuth from "./useAuth";
+import UseAuth from "./UseAuth";
 
 const axiosInstance = axios.create({
   baseURL: "https://job-portal-server-bau7.onrender.com",
 });
 
 const useAxiosSecure = () => {
-  const { user, signOutUser } = useAuth();
+  const { user, signOutUser } = UseAuth();
 
   useEffect(() => {
     const reqInterceptor = axiosInstance.interceptors.request.use(
@@ -23,9 +23,9 @@ const useAxiosSecure = () => {
       (response) => response,
       (error) => {
         if (error.status === 401 || error.status === 401) {
-          signOutUser()
-            // .then(() => console.log("signOutUser"))
-            // .catch((err) => console.log(err));
+          signOutUser();
+          // .then(() => console.log("signOutUser"))
+          // .catch((err) => console.log(err));
         }
       },
     );

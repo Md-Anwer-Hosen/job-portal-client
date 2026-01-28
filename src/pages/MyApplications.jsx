@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import useApplicationsApi from "../api/useApplicationsApi";
-import useAuth from "../hooks/useAuth";
+import UseAuth from "../hooks/UseAuth";
 
 const MyApplications = () => {
-  const { user, loading } = useAuth();
+  const { user, loading } = UseAuth();
 
   const myApplicationsPromise = useApplicationsApi();
 
