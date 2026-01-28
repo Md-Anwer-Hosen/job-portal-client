@@ -10,11 +10,12 @@ import {
 } from "firebase/auth";
 import auth from "../Firebase/firebase.init";
 import { AuthContexts } from "./AuthContexts";
-import axios from "axios";
 
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+
+  // console.log(user);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -41,19 +42,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
-      if (currentUser?.email) {
-        const userData = { email: currentUser.email };
-        axios.post(
-          "https://job-portal-server-bau7.onrender.com/jwt",
-          userData,
-          {
-            withCredentials: true,
-          },
-        );
-        // .then((res) => console.log(res.data))
-        // .catch((err) => console.log(err));
-      }
+      setLoading(false); 
     });
     return unsubscribe;
   }, []);

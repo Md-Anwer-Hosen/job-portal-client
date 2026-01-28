@@ -1,8 +1,10 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import JobCart from "./JobCart";
+import UseAuth from "../hooks/useAuth";
 
 const Jobs = () => {
+  const { user } = UseAuth();
   const {
     data = [],
     isLoading,
@@ -10,9 +12,11 @@ const Jobs = () => {
   } = useQuery({
     queryKey: ["jobs"],
     queryFn: () =>
-      fetch("https://job-portal-server-bau7.onrender.com/jobs").then((res) =>
-        res.json(),
-      ),
+      fetch("https://job-portal-server-bau7.onrender.com/jobs", {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }).then((res) => res.json()),
   });
 
   if (isLoading)

@@ -1,21 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import UseAuth from "../hooks/UseAuth";
 import JobCartAdmin from "../Shared/JobCartAdmin";
+import useAuth from "../hooks/useAuth";
+import useJobApi from "../api/useJobsApi";
 
 const MyPostJobs = () => {
-  const { user } = UseAuth();
+  const { myJobs } = useJobApi();
+  const { user } = useAuth();
   const {
     data = [],
     isLoading,
     isError,
   } = useQuery({
-    queryKey: ["jobs"],
-    queryFn: () =>
-      fetch(
-        `https://job-portal-server-bau7.onrender.com/jobs?email=${user.email}`,
-      ).then((res) => res.json()),
-    // .catch((err) => console.log(err)),
+    queryKey: ["jobs", "all"],
+
+    queryFn: () => myJobs(user.email),
   });
 
   if (isLoading)

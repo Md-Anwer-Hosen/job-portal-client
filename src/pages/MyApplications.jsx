@@ -1,8 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import UseAuth from "../hooks/UseAuth";
+import UseAuth from "../hooks/useAuth";
+import useApplicationsApi from "../api/useApplicationsApi";
+import useAuth from "../hooks/useAuth";
 
 const MyApplications = () => {
-  const { user, loading } = UseAuth();
+  const { user, loading } = useAuth();
+
+  const myApplicationsPromise = useApplicationsApi();
 
   const {
     data = [],
@@ -11,13 +15,7 @@ const MyApplications = () => {
   } = useQuery({
     queryKey: ["applications", user?.email],
     enabled: !loading && !!user?.email,
-    queryFn: async () => {
-      const res = await fetch(
-        `https://job-portal-server-bau7.onrender.com/applications?email=${user.email}`,
-        { credentials: "include" },
-      );
-      return res.json();
-    },
+    queryFn: () => myApplicationsPromise(user.email),
   });
 
   if (loading || isLoading)
