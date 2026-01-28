@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import UseAuth from "../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
